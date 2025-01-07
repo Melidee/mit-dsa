@@ -1,0 +1,73 @@
+# Algorithms and Computation
+
+### What is this about
+- intro to algorithms
+- computational problems
+- communicating solutions to others
+    - correct and efficient
+
+- computational problem
+    - binary relationship between inputs and outputs
+    - specify predicate to check correctness
+        - "if this index contains a 5, the algorithm to find 5s is correct"
+    - we want a deterministic algorithm to solve a problem
+        - algo is a function `f: I -> O`
+        - fixed size machine that generates correct outputs based on inputs
+        - inputs are arbitrary in size and value
+- inductive reasoning
+    - base case
+    - hypothesis
+    - inductive step
+- efficiency
+    - real time
+        - depends on compute resources
+    - count fundamental operations
+        - expect performance to depend on size of inputs
+        - notation
+            - `n` is size of inputs
+            - O(n) is upper bound (worst case)
+            - Omega(n) is lower bound (best case)
+            - Theta(n) is both bounds (both)
+        - algorithm runtimes (faster to slower)
+            - constant time O(1)
+            - logarithmic time O(log(n))
+            - linear time O(n)
+            - log linear O(n*log(n))
+            - quadratic time O(n^2)
+            - polynomial time O(n^c)
+            - exponential time c^O(n)
+            - factorial time O(n!)
+        - model of computation
+            - word-RAM
+            - memory
+                - constant time access of random location
+                - addressed in bytes
+                - accessed in words
+                    - 64 bits on modern arches
+                    - 32 bits legacy
+                        - ~4 billion addresses (4gb memory and storage partitions)
+            - operations
+                - integer arithmetic
+                - logical operations
+                - bitwise operations
+                - memory operations
+- data structures
+    - not operating on constant amount of data
+    - store large amount of data and do operations on that data
+- birthday matching algo
+    - maintain record of seen birthdays
+    - interview students in some order
+        - check if birthday in record
+            - if so return birthday pair and stop
+        - add new birthday to record
+    - if no pair is found return None
+- prove birthday matching
+    - hypothesis
+        - if first k students contain a match
+            - a match has been returned before interviewing student k+1
+    - base case
+        - 0 students contains no pairs
+    - assume IH true for k = k'
+        - k already has a match -> already returned by induction
+        - if k'+1 students contains match, alg checks k' against all students
+- efficiency birthday matching
