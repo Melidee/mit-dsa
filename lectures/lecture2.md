@@ -1,0 +1,87 @@
+# Data structures
+
+### Interface vs Data Structure
+- interface is what you want to do
+    - specification
+    - what data you can store
+    - operations on data
+    - problem statement
+- data structure is how to do it
+    - representation
+    - how you store data
+    - algorithms to perform operations
+    - algorithmic solution to problem
+- main interfaces
+    - store n things
+    - set
+        - search for value
+    - sequence
+        - keep track of order
+- main data structures
+    - arrays
+    - linkedlist
+        pointer base
+- Sequence interface
+    - static sequence
+        - number of items might not change but value might
+        - items x_0..x_n-1
+        - build(x: iter): instantiate data structure
+        - len(): return n
+        - iter_seq(): output items in sequence order
+        - get_at(i) -> T: return x_i
+        - set_at(i, x): set x_i to x
+        - get_first/last(): return the first or last element
+        - set_first/last(x) -> T: set the first or last element to x
+        - natural solution:
+            - static length array
+            - contiguous chunk of memory
+            - array[i] === *(addr + i)
+            - array access is constant time (get_at/set_at)
+            - allocate an array of size n in Theta(N) time
+            - space = O(time)
+            - assume w > log(n)
+    - dynamic sequences
+        - inherits static sequence methods
+        - insert_at(i, x): shift items right of i right 1 and insert x at i
+        - delete_at(i): shift items right of i left 1 and delete i
+        - insert_first/last(x): append an item to the front/back of the sequence
+        - delete_first/last(x) -> T: delete the first/last item in the sequence
+        - solution1: linked lists
+            - store items in nodes
+            - nodes contain pointers to next node
+            - store head of the list (first node)
+            - store total length of the list
+            - arbitrary order in memory
+            - pointers are adresses in memory, can be stored in a single word
+            - dereference in constant time
+            - complexity of operations
+                - build: O(n)
+                - len: O(1)
+                - iter_seq: O(n)
+                - get_at: O(i)
+                - set_at: O(i)
+                - get_first: O(1)
+                - get_last: O(n)
+                - set_first: O(1)
+                - set_last: O(n)
+                - insert_at: O(i)
+                - delete_at: O(i)
+                - insert_first: O(1)
+                - insert_last: O(n)
+                - delete_first: O(1)
+                - delete_last: O(n)
+            - improve end complexity by adding tail pointer
+- dynamic arrays
+    - relax constraint that size is exactly n elements
+    - enforce size(array) = Theta(n) & >= n
+    - track size of array and used length of array
+    - insert_last just appends to end and increments length
+        - if there is no space realloc to a 2n size chunk of memory
+    - resize cost = 2^(k+1)-1 ~= n
+    - amortization
+        - operation takes T(n) amortized time if any k operations take at most k * T(n) time
+        - averaging over the sequence of operations
+        - some operations are expensive, most are cheap
+        
+
+    
