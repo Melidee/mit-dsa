@@ -1,0 +1,1 @@
+this is a repository of my notes self studying [MIT's opencourseware 6.006: Introduction to Algorithms](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/)
